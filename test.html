@@ -1,99 +1,99 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
-	<script src="./modernizr-pointerevents.js"></script>
-	<title>Feature detection technique for pointer-events</title>
-	<style type="text/css">
-		html{
-			text-align:center;
-			font-family:Georgia, serif;
-			font-size:20px;
-			background: #700;
-			color: #ccc;
-			text-shadow: 0px 2px 3px rgba(0,0,0,0.4);
-		}
-		html.pointerevents{
-			background: #060;
-		}
-		h1{
-			font-family:Trebuchet, 'Trebuchet MS', Arial, Verdana, serif;
-			font-size:45px;
-			margin:70px 0;
-			text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-			             0px 8px 13px rgba(0,0,0,0.1),
-			             0px 18px 23px rgba(0,0,0,0.1);
-		}
-		ul{
-			margin:40px 0;
-			padding:0;
-			line-height:2em;
-		}
-		.no-pointerevents ul li{
-			background: #060;
-			border:3px solid #ddd;
-		}
-		ul li.noSupport{
-			background:#900;
-			border:0;
-		}
-	    #testWrap{
-	        width:210px;
-	        height:210px;
-	        position:relative;
-			display:inline-block;
-			overflow:hidden;
-			box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-			             0px 8px 13px rgba(0,0,0,0.1),
-			             0px 18px 23px rgba(0,0,0,0.1);
-	    }
-	    #testWrap a{
-	        border:5px solid #666;
-	        position:absolute;
-	        top:0;
-	        left:0;
-	        width:200px;
-	        height:200px;
-	        text-align:center;
-	        line-height:200px;
-	        background:#eee;
-			overflow:hidden;
-	    }
-		#testWrap:hover a{
-			background:#060;
-			color:#fff;
-		}
-		#testWrap:hover a:before{
-			content:"supported :)";
-			display:block;
-		}
-		#testWrap a:hover, #testWrap:hover a:hover{
-			background:#700;
-			color:#fff;
-		}
-		#testWrap a:hover:before, #testWrap:hover a:hover:before{
-			content:"unsupported!!";
-			display:block;
-		}
-		#testWrap a#testLink1{
-			z-index:1;
-		}
-		#testWrap a#testLink2{
-			z-index:2;
-			pointer-events:none;
-		}
-	</style>
+    <meta charset="utf-8" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+    <script src="./modernizr-pointerevents.js"></script>
+    <title>Feature detection technique for pointer-events</title>
+    <style type="text/css">
+        html{
+            text-align:center;
+            font-family:Georgia, serif;
+            font-size:20px;
+            background: #700;
+            color: #ccc;
+            text-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+        }
+        html.pointerevents{
+            background: #060;
+        }
+        h1{
+            font-family:Trebuchet, 'Trebuchet MS', Arial, Verdana, serif;
+            font-size:45px;
+            margin:70px 0;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                         0px 8px 13px rgba(0,0,0,0.1),
+                         0px 18px 23px rgba(0,0,0,0.1);
+        }
+        ul{
+            margin:40px 0;
+            padding:0;
+            line-height:2em;
+        }
+        .no-pointerevents ul li{
+            background: #060;
+            border:3px solid #ddd;
+        }
+        ul li.noSupport{
+            background:#900;
+            border:0;
+        }
+        #testWrap{
+            width:210px;
+            height:210px;
+            position:relative;
+            display:inline-block;
+            overflow:hidden;
+            box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                         0px 8px 13px rgba(0,0,0,0.1),
+                         0px 18px 23px rgba(0,0,0,0.1);
+        }
+        #testWrap a{
+            border:5px solid #666;
+            position:absolute;
+            top:0;
+            left:0;
+            width:200px;
+            height:200px;
+            text-align:center;
+            line-height:200px;
+            background:#eee;
+            overflow:hidden;
+        }
+        #testWrap:hover a{
+            background:#060;
+            color:#fff;
+        }
+        #testWrap:hover a:before{
+            content:"supported :)";
+            display:block;
+        }
+        #testWrap a:hover, #testWrap:hover a:hover{
+            background:#700;
+            color:#fff;
+        }
+        #testWrap a:hover:before, #testWrap:hover a:hover:before{
+            content:"unsupported!!";
+            display:block;
+        }
+        #testWrap a#testLink1{
+            z-index:1;
+        }
+        #testWrap a#testLink2{
+            z-index:2;
+            pointer-events:none;
+        }
+    </style>
 </head>
 <body>
 <script>
-var output = '';
-output += '<h1>Your Browser '+(Modernizr.pointerevents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1><ul>';
-output += '<li'+('pointerEvents' in document.documentElement.style ? '>supports (maybe only for SVG)' : ' class="noSupport">does not support') + ' "pointer-events" as style attribute'+'</li>';
-output += '<li'+(Modernizr.pointerevents ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" completely'+'</li></ul>';
-var element = document.createElement('div');
-element.innerHTML = output;
-document.body.appendChild(element);
+    var output = '';
+    output += '<h1>Your Browser '+(Modernizr.pointerevents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1><ul>';
+    output += '<li'+('pointerEvents' in document.documentElement.style ? '>supports (maybe only for SVG)' : ' class="noSupport">does not support') + ' "pointer-events" as style attribute'+'</li>';
+    output += '<li'+(Modernizr.pointerevents ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" completely'+'</li></ul>';
+    var element = document.createElement('div');
+    element.innerHTML = output;
+    document.body.appendChild(element);
 </script>
 <div id="testWrap">
     <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events!');return false;">test it!</a>
