@@ -13,3 +13,9 @@ How to use
 			alert('pointer events are NOT supported!');
 		}
 	</script>
+
+Example
+-------
+
+[on this page][] you can see the Modernizr plugin in action
+[on this page]: http://ausi.github.com/Feature-detection-technique-for-pointer-events/
