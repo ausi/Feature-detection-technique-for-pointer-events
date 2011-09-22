@@ -89,7 +89,7 @@
 <script>
 var output = '';
 output += '<h1>Your Browser '+(Modernizr.pointerevents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1><ul>';
-output += '<li'+('pointerEvents' in document.documentElement.style ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" as style attribute (maybe only for SVG)'+'</li>';
+output += '<li'+('pointerEvents' in document.documentElement.style ? '>supports (maybe only for SVG)' : ' class="noSupport">does not support') + ' "pointer-events" as style attribute'+'</li>';
 output += '<li'+(Modernizr.pointerevents ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" completely'+'</li></ul>';
 var element = document.createElement('div');
 element.innerHTML = output;
