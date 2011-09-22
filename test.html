@@ -1,0 +1,54 @@
+<!doctype html>
+<body>
+<script>
+window.supportsCssPointerEvents = (function(){
+    var getStyle = function(element, cssProperty){
+        if(document.defaultView && document.defaultView.getComputedStyle){
+            return document.defaultView.getComputedStyle(element, "").getPropertyValue(cssProperty);
+        }
+        if(element.currentStyle){
+            return element.currentStyle[cssProperty.replace(/\-(\w)/g, function(match, p1){
+                return p1.toUpperCase();
+            })];
+        }
+        return "";
+    };
+    var element = document.createElement('a');
+    if(!('pointerEvents' in element.style)){
+        return false;
+    }
+    element.style.pointerEvents = 'auto';
+    element.style.pointerEvents = 'no supported value';
+    document.body.appendChild(element);
+    var supports = getStyle(element, 'pointer-events') === 'auto';
+    document.body.removeChild(element);
+    return supports;
+})();
+document.write('<h1>Your Browser '+(supportsCssPointerEvents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1>');
+document.write('<li>'+('pointerEvents' in document.documentElement.style ? 'supports' : 'does not support') + ' "pointer-events" as style attribute'+'</li>');
+document.write('<li>'+(supportsCssPointerEvents ? 'supports' : 'does not support') + ' "pointer-events" completely'+'</li>');
+</script>
+
+<style type="text/css">
+    #testWrap{
+        width:200px;
+        height:200px;
+        border:5px solid #000;
+        position:relative;
+    }
+    #testWrap a{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        text-align:center;
+        line-height:200px;
+        background:#fff;
+    }
+</style>
+
+<div id="testWrap">
+    <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events!');return false;">click here</a>
+    <a id="testLink2" href="#" onclick="alert('Your Browser does not support pointer-events!');return false;">click here</a>
+</div>
