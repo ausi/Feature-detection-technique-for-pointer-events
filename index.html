@@ -24,17 +24,47 @@ window.supportsCssPointerEvents = (function(){
     document.body.removeChild(element);
     return supports;
 })();
-document.write('<h1>Your Browser '+(supportsCssPointerEvents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1>');
-document.write('<li>'+('pointerEvents' in document.documentElement.style ? 'supports' : 'does not support') + ' "pointer-events" as style attribute'+'</li>');
-document.write('<li>'+(supportsCssPointerEvents ? 'supports' : 'does not support') + ' "pointer-events" completely'+'</li>');
+document.write('<h1>Your Browser '+(supportsCssPointerEvents ? 'supports' : 'does not support')+' the CSS property "pointer-events"</h1><ul>');
+document.write('<li'+('pointerEvents' in document.documentElement.style ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" as style attribute (maybe only for SVG)'+'</li>');
+document.write('<li'+(supportsCssPointerEvents ? '>supports' : ' class="noSupport">does not support') + ' "pointer-events" completely'+'</li></ul>');
+if(supportsCssPointerEvents){
+	document.documentElement.className += ' supportsPointerEvents';
+}
 </script>
 
 <style type="text/css">
+	html{
+		text-align:center;
+		font-family:Georgia, serif;
+		font-size:20px;
+		background: #700;
+		color: #ccc;
+		text-shadow: 0px 2px 3px rgba(0,0,0,0.4);
+	}
+	html.supportsPointerEvents{
+		background: #060;
+	}
+	h1{
+		font-family:Trebuchet, 'Trebuchet MS', Arial, Verdana, serif;
+		font-size:45px;
+		margin:70px 0;
+		text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+		             0px 8px 13px rgba(0,0,0,0.1),
+		             0px 18px 23px rgba(0,0,0,0.1);
+	}
+	ul{
+		margin:40px 0;
+		padding:0;
+	}
+	ul .noSupport{
+		background:#900;
+	}
     #testWrap{
         width:200px;
         height:200px;
         border:5px solid #000;
         position:relative;
+		display:inline-block;
     }
     #testWrap a{
         position:absolute;
@@ -56,6 +86,6 @@ document.write('<li>'+(supportsCssPointerEvents ? 'supports' : 'does not support
 </style>
 
 <div id="testWrap">
-    <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events!');return false;">click here</a>
-    <a id="testLink2" href="#" onclick="alert('Your Browser does not support pointer-events!');return false;">click here</a>
+    <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events!');return false;">test it!</a>
+    <a id="testLink2" href="#" onclick="alert('Your Browser does not support pointer-events!');return false;">test it!</a>
 </div>
