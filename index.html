@@ -46,6 +46,13 @@ document.write('<li>'+(supportsCssPointerEvents ? 'supports' : 'does not support
         line-height:200px;
         background:#fff;
     }
+	#testWrap a#testLink1{
+		z-index:1;
+	}
+	#testWrap a#testLink2{
+		z-index:2;
+		pointer-events:none;
+	}
 </style>
 
 <div id="testWrap">
