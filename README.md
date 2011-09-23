@@ -14,8 +14,20 @@ How to use
         }
     </script>
 
-Example
--------
+Example / testing
+-----------------
 
 [on this page][] you can see the Modernizr plugin in action
 [on this page]: http://ausi.github.com/Feature-detection-technique-for-pointer-events/
+
+Currently tested browsers
+-------------------------
+
+### pointer-events supported
+- Firefox 6
+- Safari 5
+- Chrome 14
+
+### pointer-events not supported
+- InternetExplorer 6-9
+- Opera 10
