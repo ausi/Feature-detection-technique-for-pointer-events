@@ -26,8 +26,9 @@ Currently tested browsers (extensions are welcome!)
 ### pointer-events supported
 - Firefox 6
 - Safari 5
+- Safari on iOS 4.3
 - Chrome 14
 
 ### pointer-events not supported
-- InternetExplorer 6-9
+- InternetExplorer 6, 7, 8, 9
 - Opera 10
