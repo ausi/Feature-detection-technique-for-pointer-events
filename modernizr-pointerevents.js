@@ -1,6 +1,7 @@
 Modernizr.addTest('pointerevents', function(){
-    var element = document.createElement('script'),
+    var element = document.createElement('x'),
         documentElement = document.documentElement,
+        getComputedStyle = window.getComputedStyle,
         supports;
     if(!('pointerEvents' in element.style)){
         return false;
@@ -8,8 +9,8 @@ Modernizr.addTest('pointerevents', function(){
     element.style.pointerEvents = 'auto';
     element.style.pointerEvents = 'x';
     documentElement.appendChild(element);
-    supports = window.getComputedStyle && 
-        window.getComputedStyle(element, '').getPropertyValue('pointer-events') === 'auto';
+    supports = getComputedStyle && 
+        getComputedStyle(element, '').pointerEvents === 'auto';
     documentElement.removeChild(element);
-    return supports;
+    return !!supports;
 });

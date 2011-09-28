@@ -96,8 +96,8 @@
     document.body.appendChild(element);
 </script>
 <div id="testWrap">
-    <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events!');return false;">test it!</a>
-    <a id="testLink2" href="#" onclick="alert('Your Browser does not support pointer-events!');return false;">test it!</a>
+    <a id="testLink1" href="#" onclick="alert('Your Browser supports pointer-events! '+(Modernizr.pointerevents?'detected correctly':'feature detection FAILED!!!'));return false;">test it!</a>
+    <a id="testLink2" href="#" onclick="alert('Your Browser does not support pointer-events! '+(Modernizr.pointerevents?'feature detection FAILED!!!':'detected correctly'));return false;">test it!</a>
 </div>
 </body>
 </html>
